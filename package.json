@@ -1,0 +1,24 @@
+{
+  "name": "flashcard_app",
+  "version": "1.0.0",
+  "description": "A flashcard app created for the node command line",
+  "main": "logic.js",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lexluther2125/FlashcardApp.git"
+  },
+  "author": "Lexi Majoue",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lexluther2125/FlashcardApp/issues"
+  },
+  "homepage": "https://github.com/lexluther2125/FlashcardApp#readme"
+}
