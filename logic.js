@@ -112,7 +112,7 @@ var reviewCards = function(index) {
         questionText = card.front;
         correctResponse = card.back;
     } else if (card.type === "cloze") {
-        questionText = card.clozeDeleted;
+        questionText = card.clozeText;
         correctResponse = card.cloze;
     }
     inquirer.prompt([{
@@ -120,12 +120,12 @@ var reviewCards = function(index) {
         message: questionText
     }]).then(function(answer) {
         if (answer.response === correctResponse) {
-            console.log("Correct!")
+            console.log("That's correct!")
             if (index < flashcards.length - 1) {
                 showCards(index + 1);
             }
         } else {
-            console.log("Wrong!");
+            console.log("Sorry, that is incorrect!");
             if (index < flashcards.length - 1) {
                 showCards(index + 1)
             }
