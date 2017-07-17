@@ -118,36 +118,76 @@ var NewCloze = function() {
     });
 }
 
-var ReviewCards = function(index) {
-    card = flashcards[index];
+//Thomas Nguyen's solution:
 
-    var questionText;
-    var correctResponse;
+var count = 0;
 
-    if (card.type === "basic") {
-        questionText = card.front;
-        correctResponse = card.back;
-    } else if (card.type === "cloze") {
-        questionText = card.clozeText;
-        correctResponse = card.cloze;
-    }
-    inquirer.prompt([{
-        name: "response",
-        message: questionText
-    }]).then(function(answer) {
-        if (answer.response === correctResponse) {
-            console.log("That's correct!")
-            if (index < flashcards.length - 1) {
-                ReviewCards(index + 1);
-            }
-        } else {
-            console.log("Sorry, that is incorrect!");
-            if (index < flashcards.length - 1) {
-                ReviewCards(index + 1)
-            }
+var ReviewCards = function() {
+    
+    if(count < flashcards.length){
+
+        var questionText = "";
+        var correctResponse = "";
+
+        if (flashcards[count].type === "basic") {
+            questionText = flashcards[count].front;
+            correctResponse = flashcards[count].back;
+        } else if (flashcards[count].type === "cloze") {
+            questionText = flashcards[count].clozeText;
+            correctResponse = flashcards[count].cloze;
         }
 
-    });
-    console.log("All cards reviewed!");
-    startProgram();
+        inquirer.prompt([{
+            name: "response",
+            message: questionText,
+        }]).then(function(answer) {
+            if (answer.response === correctResponse) {
+                console.log("That's correct!");
+                count++;
+                ReviewCards(count);
+            } else {
+                console.log("Sorry, that's incorrect.");
+                startProgram();
+            }
+        });
+    } else{
+        console.log("All cards reviewed!");
+        startProgram()
+    }
 };
+
+//Previous attempt:
+
+// var ReviewCards = function(index) {
+//     card = flashcards[index];
+
+//     var questionText;
+//     var correctResponse;
+
+//     if (card.type === "basic") {
+//         questionText = card.front;
+//         correctResponse = card.back;
+//     } else if (card.type === "cloze") {
+//         questionText = card.clozeText;
+//         correctResponse = card.cloze;
+//     }
+//     inquirer.prompt([{
+//         name: "response",
+//         message: questionText
+//     }]).then(function(answer) {
+//         if (answer.response === correctResponse) {
+//             console.log("That's correct!")
+//             if (index < flashcards.length - 1) {
+//                 ReviewCards(index + 1);
+//             }
+//         } else {
+//             console.log("Sorry, that is incorrect!");
+//             if (index < flashcards.length - 1) {
+//                 ReviewCards(index + 1)
+//             }
+//         }
+
+//     });
+//     console.log("All cards reviewed!");
+//     startProgram();
+// };
