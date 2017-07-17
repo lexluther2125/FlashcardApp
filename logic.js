@@ -18,13 +18,13 @@ function startProgram() {
         }]
     }]).then(function(answer) {
         if (answer.option === "Create a new flashcard") {
-            createNew();
+            CreateNew();
         } else if (answer.option === "Review my flashcards")
-            reviewCards();
+            ReviewCards();
     });
 };
 
-var createNew = function() {
+var CreateNew = function() {
         inquirer.prompt([{
                         name: "type",
                         message: "Would you like to create a basic or a cloze flashcard?",
@@ -37,15 +37,15 @@ var createNew = function() {
                     }]
                        }]).then(function(choices) {
                             if (choices.type === "basic") {
-                                newBasic();
+                                NewBasic();
                             } else if (choices.type === "cloze") {
-                                newCloze();
+                                NewCloze();
                             }
                         })
                     };
                 
 
-                    var newBasic = function() {
+                    var NewBasic = function() {
                         inquirer.prompt([{
                             name: "front",
                             message: "What is the question you've chosen for this card?",
@@ -76,7 +76,7 @@ var createNew = function() {
                         });
                     };
 
-                    var newCloze = function() {
+                    var NewCloze = function() {
                         inquirer.prompt([{
                             name: "information",
                             message: "What is the full text for this card?",
@@ -118,10 +118,9 @@ var createNew = function() {
                         });
                     }
 
-                    var reviewCards = function(index) {
+                    var ReviewCards = function(index) {
                         card = flashcards[index];
-                        // var type = ["basic", "cloze"];
-
+                        
                         var questionText;
                         var correctResponse;
 
@@ -139,12 +138,12 @@ var createNew = function() {
                             if (answer.response === correctResponse) {
                                 console.log("That's correct!")
                                 if (index < flashcards.length - 1) {
-                                    reviewCards(index + 1);
+                                    ReviewCards(index + 1);
                                 }
                             } else {
                                 console.log("Sorry, that is incorrect!");
                                 if (index < flashcards.length - 1) {
-                                    reviewCards(index + 1)
+                                    ReviewCards(index + 1)
                                 }
                             }
 

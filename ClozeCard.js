@@ -1,5 +1,5 @@
+var inquirer = require("inquirer");
 var fs = require("fs");
-var BasicCard = require("./BasicCard");
 
 var ClozeCard = function(text, cloze) {
 	this.text = text;
