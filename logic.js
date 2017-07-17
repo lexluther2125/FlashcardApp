@@ -111,7 +111,7 @@ var NewCloze = function() {
                 startProgram();
             } else {
                 console.log("The cloze portion you provided is not in the full text. Please try again.");
-                startProgram();
+                return false;
             }
 
         });
