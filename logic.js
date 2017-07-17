@@ -27,18 +27,18 @@ function startProgram() {
 var CreateNew = function() {
     inquirer.prompt([{
         name: "type",
-        message: "Would you like to create a basic or a cloze flashcard?",
+        message: "Would you like to create a Basic or a Cloze flashcard?",
         type: "list",
         choices: [{
-            name: "basic"
+            name: "Basic flashcard"
         }, {
-            name: "cloze"
+            name: "Cloze flashcard"
 
         }]
     }]).then(function(choices) {
-        if (choices.type === "basic") {
+        if (choices.type === "Basic flashcard") {
             NewBasic();
-        } else if (choices.type === "cloze") {
+        } else if (choices.type === "Cloze flashcard") {
             NewCloze();
         }
     })

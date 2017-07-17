@@ -1,13 +1,8 @@
 {
   "name": "flashcard_app",
   "version": "1.0.0",
-  "description": "A flashcard app created for the node command line",
+  "description": "Flashcard generator used on the command line",
   "main": "logic.js",
-  "dependencies": {
-    "fs": "^0.0.1-security",
-    "inquirer": "^3.2.0"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "test"
   },
@@ -20,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/lexluther2125/FlashcardApp/issues"
   },
-  "homepage": "https://github.com/lexluther2125/FlashcardApp#readme"
+  "homepage": "https://github.com/lexluther2125/FlashcardApp#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^3.2.0"
+  }
 }
